@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Tarjeta principal */
+.card {
+    background: #ffffff;
+    border-radius: 48px;
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Ribbon de estado LOST */
+.status-ribbon {
+    background: #000000;
+    padding: 8px 20px;
+    text-align: center;
+}
+
+.lost-badge {
+    background: #dc2626;
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 60px;
+    color: white;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(220,38,38,0.4);
+    animation: pulseRed 1.2s infinite;
+}
+
+@keyframes pulseRed {
+    0% { transform: scale(1); background: #dc2626; }
+    50% { transform: scale(1.02); background: #ef4444; box-shadow: 0 6px 18px rgba(239,68,68,0.6); }
+    100% { transform: scale(1); background: #dc2626; }
+}
+
+/* DISEÑO HORIZONTAL (dos columnas) */
+.horizontal-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+/* COLUMNA IZQUIERDA - FOTO GRANDE */
+.photo-column {
+    flex: 1.2;
+    background: linear-gradient(135deg, #fef9e6, #fff4e0);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+}
+
+.photo-frame {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #ddd;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    backdrop-filter: blur(8px);
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-emergency-large {
+    background: #dc2626;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 60px;
+    margin-top: 30px;
+    width: 90%;
+    text-align: center;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 8px 18px rgba(220,38,38,0.3);
+}
+
+.btn-emergency-large:hover {
+    background: #b91c1c;
+    transform: scale(1.02);
+}
+
+/* COLUMNA DERECHA - INFORMACIÓN GRANDE */
+.info-column {
+    flex: 1.8;
+    padding: 40px 35px;
+    background: white;
+}
+
+.pet-title h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2b6e3c, #1e3a2f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.main-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.badge-lg {
+    background: #f1f5f9;
+    padding: 10px 20px;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0f172a;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.badge-lg i {
+    font-size: 1.2rem;
+    color: #3b82f6;
+}
+
+/* Secciones de info */
+.info-section {
+    margin-bottom: 28px;
+    border-bottom: 1px solid #eef2ff;
+    padding-bottom: 18px;
+}
+
+.info-section h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Vacunas en chips horizontales */
+.vaccine-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.vaccine-chips span {
+    background: #dbeafe;
+    color: #1e3a8a;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Grid del dueño (horizontal) */
+.owner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 28px;
+}
+
+.owner-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0c4a6e;
+}
+
+.owner-item i {
+    width: 30px;
+    font-size: 1.3rem;
+    color: #2563eb;
+}
+
+/* Grid médica horizontal */
+.medical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+}
+
+.medical-item {
+    background: #fef9e3;
+    padding: 12px 16px;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #78350f;
+}
+
+.medical-item i {
+    font-size: 1.2rem;
+    color: #f59e0b;
+}
+
+/* Botón de encontrado */
+.btn-found {
+    background: #059669;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 16px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 60px;
+    margin: 15px 0 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-found:hover {
+    background: #047857;
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(5,150,105,0.3);
+}
+
+.report-message {
+    background: #d1fae5;
+    padding: 14px;
+    border-radius: 60px;
+    text-align: center;
+    color: #065f46;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.footer-pro {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    border-top: 1px solid #1e293b;
+}
+
+/* Responsive para iPhone y móviles */
+@media (max-width: 900px) {
+    .horizontal-layout {
+        flex-direction: column;
+    }
+    
+    .photo-column {
+        padding: 30px 20px;
+    }
+    
+    .photo-frame {
+        max-width: 280px;
+    }
+    
+    .info-column {
+        padding: 30px 24px;
+    }
+    
+    .pet-title h1 {
+        font-size: 2.3rem;
+    }
+    
+    .badge-lg {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+    }
+    
+    .info-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .owner-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .medical-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-emergency-large {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+}
+
+/* Ajuste para iPhone SE (pantallas muy pequeñas) */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+    
+    .card {
+        border-radius: 32px;
+    }
+    
+    .pet-title h1 {
+        font-size: 1.9rem;
+    }
+    
+    .vaccine-chips span {
+        font-size: 0.75rem;
+    }
+    
+    .btn-found {
+        font-size: 0.9rem;
+    }
+}

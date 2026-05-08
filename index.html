@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>LostPet QR - Perfil de Mascota</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome 6 (íconos profesionales) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins moderna y legible -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicon / Icono de la página (profesional) -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="petCard">
+            <!-- Cabecera con badge de estado LOST -->
+            <div class="status-ribbon">
+                <div class="lost-badge" id="lostStatus">
+                    <i class="fas fa-skull-crossbones"></i> PERDIDO - NECESITA AYUDA
+                </div>
+            </div>
+
+            <!-- CONTENEDOR PRINCIPAL: DISEÑO HORIZONTAL (2 COLUMNAS) -->
+            <div class="horizontal-layout">
+                <!-- COLUMNA IZQUIERDA: FOTO GRANDE -->
+                <div class="photo-column">
+                    <div class="photo-frame">
+                        <img id="petPhoto" src="https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg" alt="Foto mascota">
+                        <div class="photo-overlay">
+                            <i class="fas fa-qrcode"></i> 
+                        </div>
+                    </div>
+                    <!-- Botón rápido de llamada bajo la foto -->
+                    <a href="#" id="emergencyCallBtn" class="btn-emergency-large">
+                        <i class="fas fa-phone-alt"></i> LLAMAR AL DUEÑO AHORA
+                    </a>
+                </div>
+
+                <!-- COLUMNA DERECHA: TODA LA INFORMACIÓN -->
+                <div class="info-column">
+                    <!-- Nombre y datos principales -->
+                    <div class="pet-title">
+                        <h1 id="petName">Max</h1>
+                        <div class="main-badges">
+                            <span class="badge-lg" id="petBreed"><i class="fas fa-dog"></i> Golden Retriever</span>
+                            <span class="badge-lg" id="petAge"><i class="fas fa-birthday-cake"></i> 3 años</span>
+                            <span class="badge-lg" id="petWeight"><i class="fas fa-weight-hanging"></i> 15 kg</span>
+                        </div>
+                    </div>
+
+                    <!-- Sección VACUNAS (horizontal / chips) -->
+                    <div class="info-section">
+                        <h3><i class="fas fa-syringe"></i> Vacunas</h3>
+                        <div class="vaccine-chips" id="vaccineList">
+                            <!-- Las vacunas se llenarán con JS -->
+                        </div>
+                    </div>
+
+                    <!-- Sección DUEÑO (grid horizontal de datos) -->
+                    <div class="info-section">
+                        <h3><i class="fas fa-user-astronaut"></i> Datos del propietario</h3>
+                        <div class="owner-grid" id="ownerInfo">
+                            <!-- Contenido dinámico -->
+                        </div>
+                    </div>
+
+                    <!-- Sección adicional: microchip y condiciones médicas -->
+                    <div class="info-section">
+                        <h3><i class="fas fa-microchip"></i> Identificación Médica</h3>
+                        <div class="medical-grid">
+                            <div class="medical-item"><i class="fas fa-barcode"></i> <span>Microchip: 981 098 123 456 789</span></div>
+                            <div class="medical-item"><i class="fas fa-allergies"></i> <span>Alergias: Ninguna</span></div>
+                            <div class="medical-item"><i class="fas fa-heartbeat"></i> <span>Condición: Artritis leve (medicación)</span></div>
+                            <div class="medical-item"><i class="fas fa-calendar-check"></i> <span>Última revisión: 15/02/2025</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Botón de "REPORTAR ENCONTRADO" -->
+                    <button id="reportFoundBtn" class="btn-found">
+                        <i class="fas fa-hand-peace"></i> ¡HE ENCONTRADO ESTA MASCOTA!
+                    </button>
+                    <div id="reportMessage" class="report-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i> ¡Gracias! Se ha notificado al dueño.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer profesional -->
+            <div class="footer-pro">
+                <i class="fas fa-shield-alt"></i> LostPet QR | Collar inteligente con geolocalización
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
