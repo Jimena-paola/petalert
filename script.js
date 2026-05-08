@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
         ],
        owner: {
     name: "Juan Jose Pérez Hernández",
-    phone: "+52 446 414 0898",
     email: "juan.jph@gmail.com",
+    address: "Soriano, Colón, Querétaro"
     address: "Soriano, Colón, Querétaro"
 },
         isLost: true,
