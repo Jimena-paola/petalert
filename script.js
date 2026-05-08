@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
             "Bordetella - 01/02/2025"
         ],
         owner: {
-            name: "Carlos Méndez",
-            phone: "+34 612 345 678",
-            email: "carlos.mendez@lostpet.com",
-            address: "Calle de los Perros 45, Madrid"
-        },
+    name: "Juan Jose Pérez Hernández",
+    phone: "+52 446 414 0898",
+    email: "tu_correo@gmail.com",
+    address: "Tu dirección aquí"
+},
         isLost: true,
         microchip: "981098123456789",
         allergies: "Ninguna conocida",
@@ -66,21 +66,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     // 6. Botón de llamada de emergencia
-    const emergencyBtn = document.getElementById("emergencyCallBtn");
-    const cleanPhone = petData.owner.phone.replace(/\s+/g, '');
-    emergencyBtn.href = `tel:${cleanPhone}`;
+const emergencyBtn = document.getElementById("emergencyCallBtn");
+const cleanPhone = petData.owner.phone.replace(/\D/g, "");
+emergencyBtn.href = `tel:+${cleanPhone}`;
     
-    // 7. Botón "He encontrado la mascota"
-    const reportBtn = document.getElementById("reportFoundBtn");
-    const reportMsg = document.getElementById("reportMessage");
-    reportBtn.addEventListener("click", () => {
-        reportMsg.style.display = "flex";
-        setTimeout(() => {
-            reportMsg.style.display = "none";
-        }, 5000);
-        alert("✅ ¡Reporte enviado! Gracias por ayudar a reunir a la familia con su mascota.");
-    });
-    
+    // 7. Botón "He encontrado la mascota" por WhatsApp
+const reportBtn = document.getElementById("reportFoundBtn");
+const reportMsg = document.getElementById("reportMessage");
+
+reportBtn.addEventListener("click", () => {
+    const phoneWhatsApp = petData.owner.phone.replace(/\D/g, "");
+
+    const mensaje = `Hola, encontré a tu perro ${petData.name}. Estoy viendo el QR del collar.`;
+
+    const urlWhatsApp = `https://wa.me/${phoneWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    reportMsg.style.display = "flex";
+    reportMsg.innerHTML = '<i class="fas fa-check-circle"></i> Abriendo WhatsApp para contactar al dueño...';
+
+    window.open(urlWhatsApp, "_blank");
+});
     // 8. Opcional: actualizar datos médicos del HTML con valores dinámicos (para consistencia)
     // Nota: ya están en HTML estático los medical-grid, pero para mantenerlo dinámico lo modificamos
     const medicalGrid = document.querySelector(".medical-grid");
