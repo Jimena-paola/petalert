@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
             "Leptospirosis - 20/08/2024 ✅",
             "Bordetella - 01/02/2025"
         ],
-        owner: {
+       owner: {
     name: "Juan Jose Pérez Hernández",
     phone: "+52 446 414 0898",
-    email: "tu_correo@gmail.com",
-    address: "Tu dirección aquí"
+    email: "juan.jph@gmail.com",
+    address: "Soriano, Colón, Querétaro"
 },
         isLost: true,
         microchip: "981098123456789",
